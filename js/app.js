@@ -9,11 +9,18 @@ const game = {
     //and start clock
   },
   getName() {
-    //ask for userInput
-    //Return name
+    let name = prompt('A new tama has spawned! What would you like to name it?');
+    if (name.length <= 10) {
+      return name;
+    } else {
+      while (name > 10) {
+        name = prompt("Your Tama's name is too long – choose another name:");
+      }
+      return name;
+    }
   },
   moreHungry() {
-    let howHungry = this.tama.hungry;
+    let howHungry = this.tama.hunger;
     if (howHungry < 10) {
       howHungry++;
     }
@@ -31,7 +38,7 @@ const game = {
     }
   },
   moreBored() {
-    let howBored = this.tama.hungry;
+    let howBored = this.tama.boredom;
     if (howBored < 10) {
       howBored += 2;
     }
@@ -75,8 +82,6 @@ const game = {
 
 // click any button starts game -- game.start()
 
-//
-//
 // Event Listeners
 // $('.but1').on('click', game.tama.eat);
 $('.but1').on('click', () => {
