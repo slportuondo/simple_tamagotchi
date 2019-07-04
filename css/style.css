@@ -31,12 +31,16 @@ h1 {
 	font-size: 40px;
 }
 
-.metrics {
+.tamasHealth {
+	display: flex;
+	direction: column;
 	margin-top: auto;
-	height: 30%;
+	height: 25%;
 	width: 70%;
 	background: blue
 }
+
+
 
 .gameplay {
 	display: flex;
