@@ -20,20 +20,25 @@ const game = {
     }
     return name;
   },
+  animateChar (width, height) {
+    $('#character').css({'width': width, 'height': height});
+  },
   startClock() {
     this.interval = setInterval(() => {
       // if checks -- increase stuff
       $('#time').text(`${this.clock[0]}: ${this.clock[1]}: ${this.clock[2]}`);
 
       this.clock[2]++; // this.clock[2] is equal to time in seconds
-
+      if (this.clock[2] % 2 === 1) {
+        this.animateChar('50px', '65px')
+      }
       if (this.clock[2] % 2 === 0) {
+        this.animateChar('40px', '40px');
         this.moreBored();
         if (this.clock[2] % 4 === 0) {
           this.moreTired();
         }
       }
-
       if (this.clock[2] % 3 === 0) {
         this.moreHungry();
       }

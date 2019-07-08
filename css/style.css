@@ -108,14 +108,25 @@ h1 {
 	border-radius: 10%;
 }
 #leftScreen {
-	flex: 3;
-}
-#rightScreen {
 	flex: 2;
+	text-align: center;
 }
 #time {
-	color: white;
+	font-size: 30px;
 }
+#rightScreen {
+	display: flex;
+	flex: 3;
+	justify-content: center;
+	align-items: center;
+}
+#character {
+	background: green;
+	width: 40px;
+	height: 40px;
+	border-radius: 90px;
+}
+
 
 .buttons {
 	display: flex;
