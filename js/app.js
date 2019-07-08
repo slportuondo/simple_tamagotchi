@@ -23,19 +23,21 @@ const game = {
   startClock() {
     this.interval = setInterval(() => {
       // if checks -- increase stuff
-      console.log(`The time is ${this.clock[0]}: ${this.clock[1]}: ${this.clock[2]}`);
+      $('#time').text(`${this.clock[0]}: ${this.clock[1]}: ${this.clock[2]}`);
 
       this.clock[2]++; // this.clock[2] is equal to time in seconds
 
       if (this.clock[2] % 2 === 0) {
         this.moreBored();
+        if (this.clock[2] % 4 === 0) {
+          this.moreTired();
+        }
       }
+
       if (this.clock[2] % 3 === 0) {
         this.moreHungry();
       }
-      if (this.clock[2] % 4 === 0) {
-        this.moreTired();
-      }
+
 
       if (this.clock[2] % 60 === 0) {
         this.clock[2] = 0;

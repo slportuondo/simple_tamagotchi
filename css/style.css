@@ -99,11 +99,22 @@ h1 {
 }
 
 .screen {
+	display: flex;
+	flex-direction: row;
 	background: #F2F0A4;
 	width: 65%;
 	height: 35%;
 	border: 2px solid white;
 	border-radius: 10%;
+}
+#leftScreen {
+	flex: 3;
+}
+#rightScreen {
+	flex: 2;
+}
+#time {
+	color: white;
 }
 
 .buttons {
