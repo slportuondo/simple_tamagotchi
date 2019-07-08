@@ -68,6 +68,7 @@ h1 {
 	background: #87ffb7;
 	border-right: 1px solid white;
 }
+
 #addHunger, #addSleepy, #addBored {
 	flex-grow: 0;
 	background: #ff9387;
@@ -119,4 +120,14 @@ h1 {
 	height: 50px;
 	width: 50px;
 	border-radius: 100%;
+	box-shadow: 0 2px #666;
+}
+
+.button:hover {
+	box-shadow: 1 2px #666;
+}
+
+.button:active {
+	box-shadow: none;
+  transform: translateY(2px);
 }

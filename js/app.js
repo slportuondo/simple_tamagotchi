@@ -51,18 +51,23 @@ const game = {
       }
     }, 1000);
   },
+  decreaseHealth (tamaObjKey, posHealthTag, negHealthTag) {
+    this.tama[tamaObjKey] ++;
+    $(posHealthTag).css('flex-grow', '-=1');
+    $(negHealthTag).css('flex-grow', '+=1');
+  },
   moreHungry() {
     let howHungry = this.tama.hunger;
-    if (howHungry < 10) {
-      this.tama.changeHealth('hunger', (-1), '#notHungry', '#addHunger');
+    if (howHungry <= 10) {
+      this.decreaseHealth('hunger', '#notHungry', '#addHunger');
     } else {
       this.tamaDeath();
     }
   },
   moreTired() {
     let howTired = this.tama.sleepiness;
-    if (howTired < 10) {
-      this.tama.changeHealth('sleepiness', (-1), '#notSleepy', '#addSleepy');
+    if (howTired <= 10) {
+      this.decreaseHealth('sleepiness','#notSleepy', '#addSleepy');
     }
     if (howTired >= 10) {
       this.tamaDeath();
@@ -70,8 +75,8 @@ const game = {
   },
   moreBored() {
     let howBored = this.tama.boredom;
-    if (howBored < 10) {
-      this.tama.changeHealth('boredom', (-1), '#notBored', '#addBored');
+    if (howBored <= 10) {
+      this.decreaseHealth('boredom', '#notBored', '#addBored');
     }
     if (howBored >= 10) {
       this.tamaDeath();
