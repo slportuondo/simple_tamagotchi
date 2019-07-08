@@ -1,25 +1,30 @@
 class Tamagotchi {
   constructor(name) {
     this.name = name;
-    this.hunger = 1;
-    this.sleepiness = 1;
-    this.boredom = 1;
+    this.hunger = 0;
+    this.boredom = 0;
+    this.sleepiness = 0;
+  }
+  changeHealth (tamaObjKey, plusOrMinus, posHealthTag, negHealthTag) {
+    this[tamaObjKey] ++;
+    if (plusOrMinus === '-1') {
+      $(posHealthTag).css('flex-grow', '-=1');
+      $(negHealthTag).css('flex-grow', '+=1');
+    } else if (plusOrMinus === 1) {
+      $(posHealthTag).css('flex-grow', '+=1');
+      $(negHealthTag).css('flex-grow', '-=1');
+    }
   }
   eat(){
-    if (this.hunger >= 3) {
-      this.hunger -= 2;
-    } else {
-      this.hunger = 1;
-    }
+      this.hunger -= 1;
+      this.changeHealth('hunger', 1, '#notHungry', '#addHunger');
   }
   sleep(){
-    this.sleepiness = 1;
+    this.sleepiness -= 1;
+    this.changeHealth('sleepiness', 1, '#notSleepy', '#addSleepy');
   }
   play(){
-    if (this.boredom >= 2) {
       this.boredom -= 1;
-    } else {
-      this.boredom = 1;
-    }
+      this.changeHealth('boredom', 1, '#notBored', '#addBored');
   }
 }

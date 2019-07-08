@@ -24,7 +24,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	height: 90%;
-	width: 70%;
+	width: 90%;
 }
 
 h1 {
@@ -33,14 +33,45 @@ h1 {
 
 .tamasHealth {
 	display: flex;
-	direction: column;
+	flex-direction: column;
 	margin-top: auto;
 	height: 25%;
-	width: 70%;
-	background: blue
+	width: 90%;
+	background: lightblue;
+	border: 1px solid white;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
 }
 
+#hunger, #sleepiness, #boredom {
+	flex: 1;
+	padding-top: 5%;
+	text-align: center;
+	font-size: 12px;
+	/* align-items: center; */
+}
 
+.hungerDisp, .boredomDisp, .sleepinessDisp  {
+	display: flex;
+	flex-direction: row;
+	flex: 1;
+	border-top:1px solid white;
+	border-bottom: 1px solid white;
+}
+
+.boredomDisp {
+	border-bottom: none;
+}
+
+#notHungry, #notSleepy, #notBored {
+	flex-grow: 10;
+	background: #87ffb7;
+	border-right: 1px solid white;
+}
+#addHunger, #addSleepy, #addBored {
+	flex-grow: 0;
+	background: #ff9387;
+}
 
 .gameplay {
 	display: flex;
