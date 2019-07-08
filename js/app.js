@@ -26,15 +26,14 @@ const game = {
       console.log(`The time is ${this.clock[0]}: ${this.clock[1]}: ${this.clock[2]}`);
 
       this.clock[2]++; // this.clock[2] is equal to time in seconds
-      console.log(game.tama);
 
       if (this.clock[2] % 2 === 0) {
         this.moreBored();
       }
-      if (this.clock[2] % 10 === 0) {
+      if (this.clock[2] % 3 === 0) {
         this.moreHungry();
       }
-      if (this.clock[2] % 15 === 0) {
+      if (this.clock[2] % 4 === 0) {
         this.moreTired();
       }
 
