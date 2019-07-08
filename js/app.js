@@ -51,34 +51,33 @@ const game = {
       }
     }, 1000);
   },
-  decreaseHealth (tamaObjKey, posHealthTag, negHealthTag) {
-    this.tama[tamaObjKey] ++;
-    $(posHealthTag).css('flex-grow', '-=1');
-    $(negHealthTag).css('flex-grow', '+=1');
+  decreaseHealth (tamaAttr, posHealthTag, negHealthTag) {
+    this.tama[tamaAttr]++;
+    const healthType = this.tama[tamaAttr];
+    $(posHealthTag).css('flex-grow', (10 - healthType));
+    $(negHealthTag).css('flex-grow', healthType);
   },
   moreHungry() {
-    let howHungry = this.tama.hunger;
-    if (howHungry <= 10) {
+    let hunger = this.tama.hunger;
+    if (hunger < 10) {
       this.decreaseHealth('hunger', '#notHungry', '#addHunger');
     } else {
       this.tamaDeath();
     }
   },
   moreTired() {
-    let howTired = this.tama.sleepiness;
-    if (howTired <= 10) {
+    let sleepiness = this.tama.sleepiness;
+    if (sleepiness < 10) {
       this.decreaseHealth('sleepiness','#notSleepy', '#addSleepy');
-    }
-    if (howTired >= 10) {
+    } else {
       this.tamaDeath();
     }
   },
   moreBored() {
-    let howBored = this.tama.boredom;
-    if (howBored <= 10) {
+    let boredom = this.tama.boredom;
+    if (boredom < 10) {
       this.decreaseHealth('boredom', '#notBored', '#addBored');
-    }
-    if (howBored >= 10) {
+    } else {
       this.tamaDeath();
     }
   },
@@ -92,7 +91,6 @@ const game = {
     }
   }
 }
-// click any button starts game -- game.start()
 
 // Event Listeners
 $('#but1').on('click', () => {
@@ -102,7 +100,7 @@ $('#but2').on('click', () => {
   game.tama.play();
 });
 $('#but3').on('click', () => {
-  game.tama.sleep
+  game.tama.sleep();
 });
 $('#startButton').on('click', () => {
   game.newGame();

@@ -70,7 +70,7 @@ h1 {
 }
 
 #addHunger, #addSleepy, #addBored {
-	flex-grow: 0;
+	flex-grow: 1;
 	background: #ff9387;
 }
 
